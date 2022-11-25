@@ -1,0 +1,111 @@
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+        <!-- Menu Section Starts -->
+         <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Update Order</h1>
+        <br><br>
+
+
+        
+        <form action="" method="POST">
+        
+            <table class="tbl-30">
+                <tr>
+                    <td>Food Name</td>
+                    <td><b> Ham Burger </b></td>
+                </tr>
+
+                <tr>
+                    <td>Price</td>
+                    <td>
+                        <b> $ 150.00</b>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Qty</td>
+                    <td>
+                        <input type="number" name="qty" value="3">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Status</td>
+                    <td>
+                        <select name="status">
+                            <option selected value="Ordered">Ordered</option>
+                            <option  value="On Delivery">On Delivery</option>
+                            <option  value="Delivered">Delivered</option>
+                            <option  value="Cancelled">Cancelled</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Customer Name: </td>
+                    <td>
+                        <input type="text" name="customer_name" value="abiral">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Customer Contact: </td>
+                    <td>
+                        <input type="text" name="customer_contact" value="9829310011">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Customer Email: </td>
+                    <td>
+                        <input type="text" name="customer_email" value="abiralmanausya9@gmail.com">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Customer Address: </td>
+                    <td>
+                        <textarea name="customer_address" cols="30" rows="5">as</textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td clospan="2">
+                        <input type="hidden" name="id" value="12">
+                        <input type="hidden" name="price" value="150.00">
+
+                        <input type="submit" name="submit" value="Update Order" class="btn-secondary">
+                    </td>
+                </tr>
+            </table>
+        
+        </form>
+
+
+        
+
+    </div>
+</div>
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>

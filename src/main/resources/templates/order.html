@@ -1,0 +1,103 @@
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Important to make website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+
+    <!-- Link our CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navbar Section Starts Here -->
+   <div th:insert="/users/users_includes/navbar"></div>
+    <!-- Navbar Section Ends Here -->
+
+    <!-- fOOD sEARCH Section Starts Here -->
+    <section class="food-search">
+        <div class="container">
+            
+            <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
+
+            <form method="POST" action="/confirm/order" class="order"  >
+                <fieldset>
+                <div >
+ 
+                  <legend>Selected Food</legend>
+					
+                    <div class="food-menu-img">
+                    <img th:src= "*{'images/'+orders.select_image}" alt="Chiken Momo" class="img-responsive img-curve">   
+                    </div>
+    				
+    				
+    				
+    				<input type="text" name="food" th:value="*{orders.title}" hidden>
+    				<input type="text" name="total" th:value="*{orders.price}" hidden>
+    					<input type="text" name="price" th:value="*{orders.price}" hidden>
+                    <div class="food-menu-desc">
+                         <h3 th:value="*{title}">[[${orders.title}]]</h3>
+                        <p class="food-price"name="price" >[[${orders.price}]]</p> 
+                        </div>
+                            </div>
+                        <div class="order-label">Quantity</div>
+                        <input type="number" name="qty" class="input-responsive" value="1" required>
+                        
+               
+                    
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Delivery Details</legend>
+                    <div class="order-label">Full Name</div>
+                    <input type="text" name="customer_name" placeholder="E.g. Sanjeev Ray" class="input-responsive" required>
+
+                    <div class="order-label">Phone Number</div>
+                    <input type="tel" name="customer_contact" placeholder="E.g. 9843xxxxxx" class="input-responsive" required>
+
+                    <div class="order-label">Email</div>
+                    <input type="email" name="customer_email" placeholder="E.g. hi@sanjeev.com" class="input-responsive" required>
+
+                      <div class="order-label">Date</div>
+                    <input type="date" name="order_date" placeholder="E.g. hi@sanjeev.com" class="input-responsive" required>
+                    <div class="order-label">Address</div>
+                    <textarea name="customer_address" rows="10" placeholder="E.g. Street, City, Country" class="input-responsive" required></textarea>
+
+                    <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
+                </fieldset>
+
+            </form>
+
+        </div>
+    </section>
+    <!-- fOOD sEARCH Section Ends Here -->
+
+    <!-- social Section Starts Here -->
+    <section class="social">
+        <div class="container text-center">
+            <ul>
+                <li>
+                    <a href="#"><img src="https://img.icons8.com/fluent/50/000000/facebook-new.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- social Section Ends Here -->
+
+    <!-- footer Section Starts Here -->
+    <section class="footer">
+        <div class="container text-center">
+            <p>Designed By Aayam Khadka and Sanjeev Ray</p>
+       
+        </div>
+    </section>
+    <!-- footer Section Ends Here -->
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+       <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Update Category</h1>
+
+        <br><br>
+
+
+        
+        <form action="/admin/category/update" method="POST" enctype="multipart/form-data" th:object="${category}">
+
+            <table class="tbl-30">
+                <tr>
+                    <td>Title: </td>
+                    <td>
+                       <input type="text" th:field="*{title}" value="Pizza">  
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Current Image: </td>
+                    <td>
+                    <img th:src= "@{${'/images/'+ image_name}}" width="150px">
+                                                    </td>
+                </tr>
+
+                <tr>
+                    <td>New Image: </td>
+                    <td>
+                        <input type="file" name="image_name">
+                    </td>
+                </tr>
+
+                <tr>
+                  <td>Featured: </td>
+                    <td>
+                        <input checked type="radio" th:field="*{featured}" value="Yes"> Yes 
+
+                        <input  type="radio" th:field="*{featured}" value="No"> No 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Active: </td>
+                    <td>
+                        <input checked type="radio" th:field="*{active}" value="Yes"> Yes 
+
+                        <input  type="radio" th:field="*{active}" value="No"> No 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        
+                        <input type="hidden" th:field="*{id}" >
+                        <input type="submit" name="submit" value="Update Category" class="btn-secondary">
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+
+        
+    </div>
+</div>
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>

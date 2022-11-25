@@ -1,0 +1,123 @@
+<html xlmns:th="http://www.thymeleaf.org">
+<<head>
+    <meta charset="UTF-8">
+    <!-- Important to make website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+
+    <!-- Link our CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+           <div th:insert="/users/users_includes/navbar"></div>
+   
+
+     <!-- fOOD sEARCH Section Starts Here -->
+    <section class="food-search text-center">
+        <div class="container">
+            
+            <form action="food-search.html" method="POST">
+               
+            </form>
+
+        </div>
+    </section>
+    <!-- fOOD sEARCH Section Ends Here -->
+
+    
+
+ <!-- CAtegories Section Starts Here -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="text-center">Explore Foods</h2>
+
+                          <div th:each="cat:${categories}" >          
+                       
+                      <a th:href="@{/categories-foods(id=${cat.id})}">
+                            <div class="box-3 float-container">
+                               <img th:src= "@{${'/images/'+cat.image_name}}" width="200px" alt="Pizza" class="img-responsive img-curve"/>
+                
+                                                                        
+
+                                <h3 class="float-text text-white">[[${cat.title}]]</h3>
+                            </div>
+                        </a>
+                     </div>                                           
+                       
+
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <!-- Categories Section Ends Here -->
+
+      <!-- fOOD MEnu Section Starts Here -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Food Menu</h2>
+
+                         <div th:each="fat:${food}" >           
+                        <div class="food-menu-box"  > 
+                            <div class="food-menu-img">
+                            
+                             <img th:src="@{${'/images/'+fat.select_image}}" alt="Chicke Hawain Pizza" class="img-responsive img-curve"/>
+                                                                        
+                            </div>
+
+                            <div class="food-menu-desc">
+                                <h4>[[${fat.title}]]</h4>
+                               <p class="food-price">[[${fat.price}]]</p>
+                                <p class="food-detail">
+                                  [[${fat.description}]]                             </p>
+                                <br>
+
+                                      <a th:href="@{/order(id=${fat.id})}" class="btn btn-primary">Order Now</a>
+                                
+                            </div>
+                        </div>
+
+                         </div>
+            
+
+            
+
+            <div class="clearfix"></div>
+
+            
+
+        </div>
+
+        <p class="text-center">
+            <a href="/foods">See All Foods</a>
+        </p>
+    </section>
+    <!-- fOOD Menu Section Ends Here -->
+
+    <!-- social Section Starts Here -->
+    <section class="social">
+        <div class="container text-center">
+            <ul>
+                <li>
+                    <a href="#"><img src="https://img.icons8.com/fluent/50/000000/facebook-new.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png"/></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- social Section Ends Here -->
+
+    <!-- footer Section Starts Here -->
+    <section class="footer">
+        <div class="container text-center">
+            <p> Designed By Aayam Khadka and Sanjeev Ray</p>
+        </div>
+    </section>
+    <!-- footer Section Ends Here -->
+
+</body>
+</html>

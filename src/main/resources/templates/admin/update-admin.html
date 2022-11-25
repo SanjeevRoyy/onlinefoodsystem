@@ -1,0 +1,40 @@
+
+	<link rel="stylesheet" href="/css/admin.css">
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Update Admin</h1>
+
+        <br><br>
+
+    
+
+
+        <form action="" method="POST" th:object="${admin}>
+
+            <table class="tbl-30">
+                <tr>
+                    <td>Full Name: </td>
+                    <td>
+                        <input type="text" th:field="*{fullname}" value="">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Username: </td>
+                    <td>
+                        <input type="text" th:field="*{username}"  value="">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" th:field="*{password}" value="">
+                        <input type="submit" name="submit" value="Update Admin" class="btn-secondary">
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+    </div>
+</div>

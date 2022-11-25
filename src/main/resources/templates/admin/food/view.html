@@ -1,0 +1,80 @@
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+        <!-- Menu Section Starts -->
+       
+       <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Food Items</h1>
+
+        <br /><br />
+
+                <!-- Button to Add Food -->
+                <a href="/admin/food/add" class="btn-primary">Add Food</a>
+
+                <br /><br /><br />
+
+                
+                <table class="tbl-full">
+                    <tr>
+                        <th>S.N.</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Category</th>
+                        <th>Featured</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+                                     <tr th:each="fat:${food}">
+                                     <td>[[${fat.id}]]</td>
+                   					 <td>[[${fat.title}]]</td>
+                   					  <td>[[${fat.description}]]</td>
+                   					  <td>[[${fat.price}]]</td>
+                   					
+                   					  
+                   					  <td>
+                   					        <img th:src= "@{${'/images/'+fat.select_image}}" width="200px"/>
+                   					  </td>
+                   					  <td>[[${fat.category}]]</td>
+                   					   <td>[[${fat.featured}]]</td>
+                   					    <td>[[${fat.active}]]</td>
+
+                    
+                                
+                                    <td>
+                                        <a th:href="@{/admin/food/edit(id=${fat.id})}" class="btn-secondary">Update Food</a>
+                                          <a th:href="@{/admin/food/delete(id=${fat.id})}" class="btn-danger">Delete Food</a>
+                                    </td>
+                                </tr>
+                                
+
+                                
+                    
+                </table>
+    </div>
+    
+</div>
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>

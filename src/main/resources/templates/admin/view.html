@@ -1,0 +1,72 @@
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+        <!-- Menu Section Starts -->
+        <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+
+        <!-- Main Content Section Starts -->
+        <div class="main-content">
+            <div class="wrapper">
+                <h1>Manage Admin</h1>
+
+                <br />
+
+                                <br><br><br>
+
+                <!-- Button to Add Admin -->
+                <a href="/admin/add" class="btn-primary">Add Admin</a>
+
+                <br /><br /><br />
+
+                <table class="tbl-full">
+                    <tr>
+                        <th>S.N.</th>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                        <th>Action</th>
+                    </tr>
+
+                    
+                                   
+                                    <tr th:each="ad:${admin}">
+                                    <td>[[${ad.id}]]</td>
+                                     <td>[[${ad.fullname}]]</td>
+                   				 	  <td>[[${ad.username}]]</td>
+                   					  
+                   					 
+                   					  
+                   					  
+                                 <td>
+                                        <a th:href="@{/adminedit(id=${ad.id})}" class="btn-secondary">Update Admin</a>
+                                          <a th:href="@{/admin/delete(id=${ad.id})}" class="btn-danger">Delete Admin</a>
+                                    </td>
+                   					  
+                   					 </tr>
+
+                                    
+
+                    
+                </table>
+
+            </div>
+        </div>
+        <!-- Main Content Setion Ends -->
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>

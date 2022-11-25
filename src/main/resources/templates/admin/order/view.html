@@ -1,0 +1,79 @@
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+        <!-- Menu Section Starts -->
+        <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Food Order</h1>
+
+                <br /><br /><br />
+
+                                <br><br>
+
+                <table class="tbl-full">
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="10%">Order Date</th>
+                        <th width="10%">Food</th>
+                        <th width="5%">Price</th>
+                        <th width="5%">Qty</th>
+                        <th width="6%">Total</th>
+                        <th width="8%">Status</th>
+                        <th width="10%">Customer</th>
+                        <th width="10%">Contact</th>
+                        <th width="15%">Email</th>
+                        <th width="10%">Address</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    
+                                    <tr th:each="orders:${order}">
+                                        <td>[[${orders.id}]]</td>
+                                        <td>[[${orders.order_date}]]</td>
+                                        <td>[[${orders.food}]]</td>
+                                        <td>[[${orders.price}]]</td>
+                                        <td>1</td>
+                                        <td>[[${orders.price}]]</td>
+                                        
+
+                                        <td>
+                                            <label style='color: blue;'>Ordered</label>                                        </td>
+
+                                        <td>[[${orders.customer_name}]]</td>
+                                        <td>[[${orders.customer_contact}]]</td>
+                                        <td>[[${orders.customer_email}]]</td>
+                                        <td>[[${orders.customer_address}]]</td>
+                                        <td>
+                                            <a href="/admin/order/edit" class="btn-secondary">Update Order</a>
+                                        </td>
+                                    </tr>
+
+                                
+
+                                
+ 
+                </table>
+    </div>
+    
+</div>
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>

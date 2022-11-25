@@ -1,0 +1,77 @@
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+        <!-- Menu Section Starts -->
+        
+       <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Manage Food Category</h1>
+
+        <br /><br />
+                <br><br>
+
+                <!-- Button to Add Admin -->
+                <a href="/admin/category/add" class="btn-primary">Add Category</a>
+
+                <br /><br /><br />
+
+                <table class="tbl-full">
+                    <tr>
+                        <th>S.N.</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Featured</th>
+                        <th>Active</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    
+
+                                     <tr th:each="cat:${categories}">
+                                      <td>[[${cat.id}]]</td>
+                   					 <td>[[${cat.title}]]</td>
+                   					  <td>
+                   					  
+                   					  
+                   					    
+                   					    <img th:src= "@{${'/images/'+cat.image_name}}" width="200px"/>
+                   					
+                   					    
+                   					  </td>
+                   					   <td>[[${cat.featured}]]</td>
+                   					    <td>[[${cat.active}]]</td>
+                   					    
+                   					     <td>
+                                        <a th:href="@{/admin/category/edit(id=${cat.id})}" class="btn-secondary">Update Food</a>
+                                          <a th:href="@{/admin/category/delete(id=${cat.id})}" class="btn-danger">Delete Food</a>
+                                    </td>
+                   					     </tr>
+                                
+                    
+
+                    
+                </table>
+    </div>
+    
+</div>
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>

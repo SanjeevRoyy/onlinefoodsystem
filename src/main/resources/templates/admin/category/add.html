@@ -1,0 +1,82 @@
+
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+        <!-- Menu Section Starts -->
+        <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Add Category</h1>
+
+        <br><br>
+
+        
+        <br><br>
+
+        <!-- Add CAtegory Form Starts -->
+        <form action="/admin/category/add" method="POST" enctype="multipart/form-data">
+
+            <table class="tbl-30">
+                <tr>
+                    <td>Title: </td>
+                    <td>
+                        <input type="text" name="title" placeholder="Category Title">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Select Image: </td>
+                    <td>
+                        <input type="file" name="image_name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Featured: </td>
+                    <td>
+                        <input type="radio" name="featured" value="Yes"> Yes 
+                        <input type="radio" name="featured" value="No"> No 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Active: </td>
+                    <td>
+                        <input type="radio" name="active" value="Yes"> Yes 
+                        <input type="radio" name="active" value="No"> No 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Add Category" class="btn-secondary">
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+        <!-- Add CAtegory Form Ends -->
+
+        
+    </div>
+</div>
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>

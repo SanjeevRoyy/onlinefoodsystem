@@ -1,0 +1,115 @@
+
+
+<html xlmns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+        <title>Online Food Order</title>
+
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+    
+    <body>
+        <!-- Menu Section Starts -->
+       <div th:insert="admin/includes/navbar"></div>
+        <!-- Menu Section Ends -->
+
+
+<div class="main-content">
+    <div class="wrapper">
+        <h1>Update Food</h1>
+        <br><br>
+
+        <form action="/admin/food/update" method="POST" enctype="multipart/form-data" th:object="${food}">
+        
+        <table class="tbl-30">
+
+            <tr>
+                <td>Title: </td>
+                <td>
+                    <input type="text" th:field="*{title}" value="Ham Burger">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Description: </td>
+                <td>
+                    <textarea th:field="*{description}" cols="30" rows="5">Burger with Ham, Pineapple and lots of Cheese.</textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Price: </td>
+                <td>
+                    <input type="number" th:field="*{price}" value="150.00">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Current Image: </td>
+                <td>
+                                                <img th:src= "@{${'/images/'+select_image}}" width="150px">
+                                            </td>
+            </tr>
+
+            <tr>
+                <td>Select New Image: </td>
+                <td>
+                    <input type="file" name="image">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Category: </td>
+                <td>
+                    <select th:field="*{category}">
+
+                                        <div th:each="cat:${categories}">
+                                          
+                                        <option th:value="*{cat.id}">[[${cat.title}]]</option>                               
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Featured: </td>
+                <td>
+                    <input checked type="radio" th:field="*{featured}" value="Yes"> Yes 
+                    <input  type="radio" th:field="*{featured}" value="No"> No 
+                </td>
+            </tr>
+
+            <tr>
+                <td>Active: </td>
+                <td>
+                    <input checked type="radio" th:field="*{active}" value="Yes"> Yes 
+                    <input  type="radio" th:field="*{active}" value="No"> No 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="hidden" th:field="*{id}" value="4">
+                    <input type="hidden" name="current_image" value="Food-Name-6340.jpg">
+
+                    <input type="submit" name="submit" value="Update Food" class="btn-secondary">
+                </td>
+            </tr>
+        
+        </table>
+        
+        </form>
+
+        
+    </div>
+</div>
+
+<!-- Footer Section Starts -->
+<div class="footer">
+            <div class="wrapper">
+                <p class="text-center">2022 Developed By Aayam Khadka and Sanjeev Ray</a></p>
+            </div>
+        </div>
+        <!-- Footer Section Ends -->
+
+    </body>
+</html>
